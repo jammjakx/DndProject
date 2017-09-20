@@ -1,1 +1,0 @@
-Op deze website test ik de verschillende features van CodeIgniter
