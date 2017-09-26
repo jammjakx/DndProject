@@ -5,14 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnDProject"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="525">
+        Title="Main" Height="350" Width="525" Loaded="Window_Loaded" Initialized="Window_Initialized">
     <Grid>
-        <Button x:Name="button" Content="Log In" HorizontalAlignment="Left" Margin="160,211,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Margin="310,211,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="160,110,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="160,145,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" Height="23" Margin="265,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="265,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Grid.BindingGroup>
+            <BindingGroup/>
+        </Grid.BindingGroup>
+        <Button x:Name="button1" Content="Item 1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="67" Height="61"/>
+        <Button x:Name="button1_Copy" Content="Item 2" HorizontalAlignment="Left" Margin="82,10,0,0" VerticalAlignment="Top" Width="67" Height="61"/>
 
     </Grid>
 </Window>
