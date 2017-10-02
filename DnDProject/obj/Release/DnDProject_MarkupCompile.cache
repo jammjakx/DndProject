@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ralph\Documents\DndProject\DnDProject\DnDProject\obj\Release\
+C:\Users\ralph\Documents\DndProject\DnDProject\obj\Release\
 DnDProject
 none
 false
 TRACE
-C:\Users\ralph\Documents\DndProject\DnDProject\DnDProject\App.xaml
-11151548125
+C:\Users\ralph\Documents\DndProject\DnDProject\App.xaml
+31510195844
 
-5-2017746502
-17-1514567109
-MainWindow.xaml;
+9137888781
+17431820828
+LoginWindow.xaml;MainWindow.xaml;RegisterForm.xaml;
 
-False
+True
 
