@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace DnDProject
 {
-    internal class Database
+    public class Database
     {
         string servername = "localhost";
         string databasename = "dnd_db";
@@ -16,6 +16,8 @@ namespace DnDProject
         string connectionString;
         MySqlConnection connection;
         public bool Connected = false;
+        public int CurrentUserId = 0;
+        public long CurrentUserSessionId = 0;
 
 
         public Database()
@@ -100,15 +102,33 @@ namespace DnDProject
 
         public void LogLogin(int id)
         {
+            this.CurrentUserId = id;
+
             // store a record with the login time for the current user
             string query = String.Format("INSERT INTO Users_sessions (user_id) VALUES ({0}) ", id);
+            using (MySqlCommand cmd = new MySqlCommand(query, connection))
+            {
+                var result = cmd.ExecuteNonQuery();
+                this.CurrentUserSessionId = cmd.LastInsertedId;
+            }
+
+            this.Close();
+            
+        }
+
+        public void LogLogout()
+        {
+            // store a record with the login time for the current user
+            string logouttime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            string query = String.Format("UPDATE Users_sessions SET logged_out = '{0}' WHERE id={1} ", logouttime, this.CurrentUserSessionId);
             using (MySqlCommand cmd = new MySqlCommand(query, connection))
             {
                 var result = cmd.ExecuteNonQuery();
             }
 
             this.Close();
-            
+
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnDProject"
         mc:Ignorable="d"
-        Title="Main" Height="350" Width="525" Loaded="Window_Loaded" Initialized="Window_Initialized">
+        Title="Main" Height="350" Width="525" Loaded="Window_Loaded" Initialized="Window_Initialized" Closing="Window_Closing">
     <Grid>
         <Grid.BindingGroup>
             <BindingGroup/>

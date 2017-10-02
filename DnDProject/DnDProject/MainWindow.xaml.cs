@@ -21,6 +21,8 @@ namespace DnDProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Database db = new Database();
+
         bool IsLoggedIn = false;
 
         public MainWindow() 
@@ -40,7 +42,7 @@ namespace DnDProject
 
             while (this.IsLoggedIn == false)
             {
-                LoginWindow dialog = new LoginWindow(message);
+                LoginWindow dialog = new LoginWindow(this.db, message);
 
                 dialog.ShowDialog();
 
@@ -67,6 +69,13 @@ namespace DnDProject
 
                 dialog = null;
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            db.Open();
+            db.LogLogout();
+            db.Close();
         }
     }
 }

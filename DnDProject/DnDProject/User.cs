@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnDProject
 {
-    class User
+    public class User
     {
         public int Id;
         public string Username;

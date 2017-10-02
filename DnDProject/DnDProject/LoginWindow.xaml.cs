@@ -21,13 +21,13 @@ namespace DnDProject
     public partial class LoginWindow : Window
     {
         public bool TryLogin = false;
-        private Database db;
+        public Database db;
 
-        public LoginWindow(string message)
+        public LoginWindow(Database database, string message)
         {
             InitializeComponent();
 
-            db = new Database();
+            this.db = database;
 
             // zorg dat de message wordt weergegeven
             if (message.Length > 0)
