@@ -75,6 +75,22 @@ INSERT INTO `users` (`Id`, `Username`, `Password`, `Email`) VALUES
 	(1, 'peter', 'Studentje1', 'peter.snoek@gmail.com'),
 	(2, 'mike', 'Studentje1', 'mike.deboer@hotmail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+
+-- Structuur van  tabel dnd_db.users_sessions wordt geschreven
+DROP TABLE IF EXISTS `users_sessions`;
+CREATE TABLE IF NOT EXISTS `users_sessions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `logged_in` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `logged_out` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comments` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='keep track of when users logged in, and when they closed the app';
+
+-- Dumpen data van tabel dnd_db.users_sessions: ~0 rows (ongeveer)
+/*!40000 ALTER TABLE `users_sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users_sessions` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
