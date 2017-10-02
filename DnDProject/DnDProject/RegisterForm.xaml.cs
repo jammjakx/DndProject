@@ -26,7 +26,16 @@ namespace DnDProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //battleshipContext context = new battleshipContext();
+            //User user = new User(txtUsername.Text, txtPassword.Password);
+            //context.Users.Add(user);
+            //context.SaveChanges();
+            //MessageBox.Show("User Created");
         }
     }
 }

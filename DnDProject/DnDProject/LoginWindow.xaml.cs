@@ -20,17 +20,29 @@ namespace DnDProject
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public LoginWindow()
+        public bool TryLogin = false;
+
+        public LoginWindow(string message)
         {
             InitializeComponent();
+
+            // zorg dat de message wordt weergegeven
+            if (message.Length > 0)
+            {
+                ErrorMessage.Visibility = Visibility.Visible;
+                ErrorMessage.Text = message;
+            }
+            else
+            {
+                ErrorMessage.Visibility = Visibility.Hidden;
+            }
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-            this.Close();
+            TryLogin = true;
 
-            
             // haal waarde op van tekstvak "username"
             string u = this.Username.Text;
             string p = this.Password.Text;
@@ -101,15 +113,12 @@ namespace DnDProject
                 MessageBox.Show(ex.Message);
                 return;
             }
-
-
             
             // try to close database connection, show error if it failed
             try
             {
                 connection.Close();
                 Console.WriteLine("Database connection closed");
-                return;
             }
             catch (MySqlException ex)
             {
@@ -118,11 +127,20 @@ namespace DnDProject
             }
 
             // see how many results there are; 0 means "user/pass combo not found", 1 row found means: we found the user/pass combi
+            Console.WriteLine("User records found: " + users.Count);
+
+            if ( users.Count == 1 )
+            {
+                this.DialogResult = true;
+                this.Close();
+            } else
+            {
+                // klopt niet; niks gevonden of meerdere; allebei niet goed
+                this.DialogResult = false;
+                this.Close();
+            }
+            
             // uitzoeken wat er moet gebeuren als results 0 is of meer dan 1
-
-
-
-
 
         }
 
@@ -132,6 +150,17 @@ namespace DnDProject
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            RegisterForm rf = new RegisterForm();
+            rf.ShowDialog();
+
+            if (rf.DialogResult.HasValue && rf.DialogResult.Value)
+            {
+
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
         }

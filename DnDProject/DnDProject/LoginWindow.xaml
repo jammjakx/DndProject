@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnDProject"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="300">
+        Title="LoginWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
-        <Button x:Name="button2" Content="Login" HorizontalAlignment="Left" Margin="100,144,0,0" VerticalAlignment="Top" Width="106" Click="button_Click"/>
-        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="32,57,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="32,92,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" Height="23" Margin="137,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="137,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Register" HorizontalAlignment="Left" Margin="100,169,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click_2"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="100,194,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click_1"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="127*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button2" Content="Login" HorizontalAlignment="Left" Margin="99,175,0,0" VerticalAlignment="Top" Width="106" Click="button_Click" Grid.ColumnSpan="3"/>
+        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="31,88,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="31,123,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Username" HorizontalAlignment="Left" Height="23" Margin="29,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="29,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="99,200,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click_2" Grid.ColumnSpan="3"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="99,225,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click_1" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="ErrorMessage" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="274" Height="59" Foreground="Red"/>
+
 
     </Grid>
 </Window>

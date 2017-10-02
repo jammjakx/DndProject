@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RegisterForm" Height="300" Width="300">
     <Grid>
-        <Button Content="Create Account" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="160,206,0,0"/>
+        <Button Content="Create Account" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="160,206,0,0" Click="Button_Click_1"/>
         <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="24,206,0,0" Click="Button_Click"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="24,62,0,0" VerticalAlignment="Top" Height="23" Width="105"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="24,94,0,0" VerticalAlignment="Top" Height="23" Width="105"/>

@@ -36,18 +36,36 @@ namespace DnDProject
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            if (this.IsLoggedIn == false)
+            string message = "";
+
+            while (this.IsLoggedIn == false)
             {
-                LoginWindow dialog = new LoginWindow();
+                LoginWindow dialog = new LoginWindow(message);
+
                 dialog.ShowDialog();
 
                 if (dialog.DialogResult.HasValue && dialog.DialogResult.Value)
                 {
                     this.Visibility = System.Windows.Visibility.Visible;
                     this.Title = "Main - Loggedin";
-                }
+                    this.IsLoggedIn = true;
+                } 
                 else
-                    Application.Current.Shutdown();
+                {
+                    if (dialog.TryLogin == true)
+                    {
+                        // the login dialog returned "false"  (ofwel cancel, ofwel foute combi)
+                        message = "Ongeldige combinatie van username/password. Probeer het opnieuw.";
+                    }
+                    else
+                    {
+                        Application.Current.Shutdown();
+                        break;
+                    }
+                    
+                }
+
+                dialog = null;
             }
         }
     }
