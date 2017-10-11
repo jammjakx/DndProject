@@ -11,8 +11,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Databasestructuur van dnd_db wordt geschreven
-DROP DATABASE IF EXISTS `dnd_db`;
-CREATE DATABASE IF NOT EXISTS `dnd_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+--DROP DATABASE IF EXISTS `dnd_db`;
+--CREATE DATABASE IF NOT EXISTS `dnd_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `dnd_db`;
 
 
